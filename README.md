@@ -1,6 +1,6 @@
 # OS Page Replacement Algorithm Visualizer
 
-A comprehensive, interactive visualization tool for understanding page replacement algorithms used in operating system memory management. This project provides both a modern React/Next.js implementation and a vanilla JavaScript version for educational purposes.
+A comprehensive, interactive visualization tool for understanding page replacement algorithms used in operating system memory management. This project provides both a modern React/Next.js implementation.
 
 ## 🚀 Features
 
@@ -269,3 +269,4 @@ const clockTest = "1 2 3 4 1 2 5 1 2 3 4 5"
 - **Modern Browsers**: Chrome 80+, Firefox 75+, Safari 13+, Edge 80+
 - **Canvas Support**: Required for visualization
 - **ES6+ Features**: Arrow functions, destructuring, modules
+
