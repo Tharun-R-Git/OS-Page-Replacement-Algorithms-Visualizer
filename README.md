@@ -39,7 +39,7 @@ A comprehensive, interactive visualization tool for understanding page replaceme
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/Tharun-R-Git/OS-Page-Replacement-Algorithms-Visualizer/tree/main
 cd os-page-replacement_1
 
 # Install dependencies
@@ -237,5 +237,6 @@ const clockTest = "1 2 3 4 1 2 5 1 2 3 4 5"
 - **Modern Browsers**: Chrome 80+, Firefox 75+, Safari 13+, Edge 80+
 - **Canvas Support**: Required for visualization
 - **ES6+ Features**: Arrow functions, destructuring, modules
+
 
 
