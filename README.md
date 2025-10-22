@@ -57,16 +57,7 @@ npm run build
 npm run start
 ```
 
-### Vanilla JavaScript Version
 
-Simply open `index.html` in a web browser - no build process required!
-
-```bash
-# Open directly in browser
-open index.html
-# or
-start index.html
-```
 
 ## 🎯 Usage
 
@@ -191,44 +182,21 @@ function usePageReplacement(
 - `stats`: Performance statistics object
 - `totalSteps`: Total number of simulation steps
 
-### Vanilla JS Class: `PageReplacementSimulator`
-
-```javascript
-class PageReplacementSimulator {
-  constructor(referenceString, numFrames, algorithm)
-  simulate()                    // Run complete simulation
-  getStatistics()              // Get performance statistics
-  getExecutionTrace()          // Get detailed execution report
-}
-```
-
-### Vanilla JS Class: `PageReplacementVisualizer`
-
-```javascript
-class PageReplacementVisualizer {
-  constructor(canvasId)         // Initialize with canvas element ID
-  draw(frames, numFrames, referenceString, currentStep, highlightType, highlightPage)
-  resizeCanvas()                // Handle responsive resizing
-}
-```
 
 ## 🎨 Customization
 
 ### Adding New Algorithms
 
 1. **React Version**: Extend the `usePageReplacement` hook
-2. **Vanilla JS**: Add new case to `PageReplacementSimulator.selectPageToReplace()`
 
 ### Styling
 
 - **React Version**: Modify Tailwind classes in components
-- **Vanilla JS**: Update CSS variables in `styles.css`
 
 ### Color Scheme
 
 Update color definitions in:
 - **React**: `app/globals.css` CSS variables
-- **Vanilla JS**: `visualizer.js` colors object
 
 ## 🧪 Testing
 
@@ -269,4 +237,5 @@ const clockTest = "1 2 3 4 1 2 5 1 2 3 4 5"
 - **Modern Browsers**: Chrome 80+, Firefox 75+, Safari 13+, Edge 80+
 - **Canvas Support**: Required for visualization
 - **ES6+ Features**: Arrow functions, destructuring, modules
+
 
