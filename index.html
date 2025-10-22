@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OS Page Replacement Algorithm Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>Page Replacement Algorithm Visualizer</h1>
+                <p class="subtitle">Interactive simulation of OS memory management</p>
+            </div>
+            <div class="header-controls">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Left Panel: Input Controls -->
+            <aside class="control-panel">
+                <div class="panel-section">
+                    <h2>Configuration</h2>
+                    
+                    <div class="form-group">
+                        <label for="referenceString">Reference String</label>
+                        <input 
+                            type="text" 
+                            id="referenceString" 
+                            placeholder="e.g., 7,0,1,2,0,3,0,4,2,3,0,3,2,1,2,0,1,7,0,1"
+                            value="7,0,1,2,0,3,0,4,2,3,0,3,2,1,2,0,1,7,0,1"
+                        >
+                        <small>Comma-separated page numbers</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="numFrames">Number of Frames</label>
+                        <div class="input-with-slider">
+                            <input 
+                                type="number" 
+                                id="numFrames" 
+                                min="1" 
+                                max="10" 
+                                value="3"
+                            >
+                            <input 
+                                type="range" 
+                                id="numFramesSlider" 
+                                min="1" 
+                                max="10" 
+                                value="3"
+                                class="slider"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="algorithm">Algorithm</label>
+                        <select id="algorithm">
+                            <option value="fifo">FIFO (First In First Out)</option>
+                            <option value="lru">LRU (Least Recently Used)</option>
+                            <option value="optimal">Optimal</option>
+                            <option value="clock">Clock Algorithm</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="speed">Animation Speed</label>
+                        <div class="input-with-slider">
+                            <span id="speedValue">1x</span>
+                            <input 
+                                type="range" 
+                                id="speed" 
+                                min="0.5" 
+                                max="3" 
+                                step="0.5" 
+                                value="1"
+                                class="slider"
+                            >
+                        </div>
+                    </div>
+
+                    <button id="startBtn" class="btn btn-primary">Start Simulation</button>
+                    <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                </div>
+
+                <!-- Statistics Panel -->
+                <div class="panel-section">
+                    <h2>Statistics</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Page Faults</span>
+                            <span class="stat-value" id="pageFaults">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Page Hits</span>
+                            <span class="stat-value" id="pageHits">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Hit Ratio</span>
+                            <span class="stat-value" id="hitRatio">0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Total References</span>
+                            <span class="stat-value" id="totalReferences">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Export Panel -->
+                <div class="panel-section">
+                    <h2>Export</h2>
+                    <button id="exportBtn" class="btn btn-secondary">Export Trace</button>
+                    <button id="screenshotBtn" class="btn btn-secondary">Screenshot</button>
+                </div>
+            </aside>
+
+            <!-- Right Panel: Visualization -->
+            <section class="visualization-panel">
+                <!-- Playback Controls -->
+                <div class="playback-controls">
+                    <button id="playBtn" class="control-btn" title="Play">▶</button>
+                    <button id="pauseBtn" class="control-btn" title="Pause">⏸</button>
+                    <button id="stepBackBtn" class="control-btn" title="Step Back">⏮</button>
+                    <button id="stepForwardBtn" class="control-btn" title="Step Forward">⏭</button>
+                    <div class="step-indicator">
+                        <span id="currentStep">0</span> / <span id="totalSteps">0</span>
+                    </div>
+                </div>
+
+                <!-- Canvas for Visualization -->
+                <div class="canvas-container">
+                    <canvas id="visualizationCanvas"></canvas>
+                </div>
+
+                <!-- Current Operation Info -->
+                <div class="operation-info">
+                    <div class="info-box">
+                        <h3>Current Operation</h3>
+                        <p id="operationText">Ready to start simulation</p>
+                    </div>
+                </div>
+
+                <!-- Data Structure Display -->
+                <div class="data-structure-panel">
+                    <h3>Data Structures</h3>
+                    <div id="dataStructureDisplay" class="data-structure-display">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="algorithms.js"></script>
+    <script src="visualizer.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
